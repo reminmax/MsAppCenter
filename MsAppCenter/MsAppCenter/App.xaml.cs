@@ -1,4 +1,7 @@
 ﻿using System;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +18,11 @@ namespace MsAppCenter
 
         protected override void OnStart()
         {
+            // MS AppCenter initialization
+            // TODO: insert your secrets here
+            AppCenter.Start("android={Your android App secret here};" +
+                            "ios={Your iOS App secret here};",
+                typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()
