@@ -4,6 +4,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using MsAppCenter.PageModels;
+using MsAppCenter.Services.AnalyticsService;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,6 +15,9 @@ namespace MsAppCenter
         public App()
         {
             InitializeComponent();
+
+            // Register service for dependency injection
+            FreshIOC.Container.Register<IAnalyticsService, AppCenterAnalyticsService>();
 
             MainPage = new FreshNavigationContainer(
                 FreshPageModelResolver.ResolvePageModel<MainPageModel>());
