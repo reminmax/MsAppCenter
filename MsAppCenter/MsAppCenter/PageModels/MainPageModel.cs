@@ -14,6 +14,8 @@ namespace MsAppCenter.PageModels
         {
             // Use dependency injection
             AnalyticsService = analyticsService;
+
+            TrackExceptionInfo();
         }
 
         protected override void ViewIsAppearing(object sender, EventArgs e)
@@ -29,5 +31,22 @@ namespace MsAppCenter.PageModels
 
         }
 
+        private void TrackExceptionInfo()
+        {
+            int i = 0;
+            try
+            {
+                int j = 1 / i;
+            }
+            catch (DivideByZeroException ex)
+            {
+                AnalyticsService.TrackError(ex, new Dictionary<string, string>
+                {
+                    { "Method", "MainPageModel.TrackExceptionInfo()" }
+                });
+
+                throw;
+            }
+        }
     }
 }
