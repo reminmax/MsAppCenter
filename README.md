@@ -45,11 +45,11 @@ This is a simple example of how you may use Ms AppCenter for events and exceptio
    ```
 4. Enter your secret keys in `app.xaml.cs` file instead of
    ```
-   {Your iOS App secret here};
+   {Your Android App secret here};
    ```
    and 
    ```
-   {Your iOS App secret here} {Your iOS App secret here};
+   {Your iOS App secret here}
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
