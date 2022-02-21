@@ -1,7 +1,9 @@
 ﻿using System;
+using FreshMvvm;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using MsAppCenter.PageModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,7 +15,8 @@ namespace MsAppCenter
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new FreshNavigationContainer(
+                FreshPageModelResolver.ResolvePageModel<MainPageModel>());
         }
 
         protected override void OnStart()
